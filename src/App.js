@@ -4,18 +4,22 @@ import Team from './Team/Team';
 import Selection from './Selection/Selection';
 
 class App extends Component {
-  //setting default state
-  //ultimately the state will default to Premier League, 2019 but I think
-  //the array of teams should come from a db
+  /*setting default state.
+    Ultimately the state will default to Premier League, 2019 but the state
+    will come from a db. Standing won't apply to state once connected to 
+    a db. I'm only including it here to play with the text.
+  */
   state = {
     teams: [
-      {name: 'Aston Villa', standing:'2'},
-      {name: 'Brighton', standing:'3'},
-      {name: 'Chelsea', standing:'1'}
+      {id: '1', name: 'Aston Villa', standing:'2'},
+      {id: '2', name: 'Brighton', standing:'3'},
+      {id: '3', name: 'Chelsea', standing:'1'}
     ],
 
     league: 'Premier League',
     year: '2019',
+
+    //not needed but leaving for refernce. Refactor later.
     showTeams: true
   }
 
@@ -44,22 +48,17 @@ class App extends Component {
     /*This is pulling in all the teams currently in state. Plan is to have
       state updated based on the league/year selection, which will feed 
       this display. 
-      Seems like I should be able to iterate through the state array instead
-      of listing 20 different Team tags.
     */
     let teams = null;
     if(this.state.showTeams){
       teams = (
         <div>
-          <Team 
-            name={this.state.teams[0].name} 
-            standing={this.state.teams[0].standing} />
-          <Team 
-            name={this.state.teams[1].name} 
-            standing={this.state.teams[1].standing} >Text for second team</Team>
-          <Team 
-            name={this.state.teams[2].name} 
-            standing={this.state.teams[2].standing} />
+          {this.state.teams.map((team) => {
+            return <Team 
+                      key={team.id}
+                      name={team.name} 
+                      standing={team.standing} />
+          })}
         </div>
       )    
     }
