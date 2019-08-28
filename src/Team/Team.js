@@ -3,9 +3,9 @@ import React from 'react';
 //using es6 () => function syntax
 const team = (props) => {
 	return (
-		<div>
-			<p>{props.name} league position: {props.standing}</p>
-			<p>{props.children}</p>
+		<div className="team-flex-container">
+			<img alt="" src={props.teamImg} />
+			   {props.name} 
 		</div>
 		)	
 }

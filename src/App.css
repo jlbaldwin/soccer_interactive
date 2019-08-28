@@ -2,3 +2,19 @@
   text-align: center;
 }
 
+img {
+  height: 30px;
+  width: 30px;
+}
+
+p {
+  vertical-align: text-top;
+  color: orange;
+}
+
+.team-flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35px;
+}

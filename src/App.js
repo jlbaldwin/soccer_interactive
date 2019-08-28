@@ -11,9 +11,9 @@ class App extends Component {
   */
   state = {
     teams: [
-      {id: '1', name: 'Aston Villa', standing:'2'},
-      {id: '2', name: 'Brighton', standing:'3'},
-      {id: '3', name: 'Chelsea', standing:'1'}
+      {id: '1', name: 'Aston Villa', standing:'2', teamImg: '/images/astonvilla.png'},
+      {id: '2', name: 'Brighton', standing:'3', teamImg: '/images/brightonha.png'},
+      {id: '3', name: 'Chelsea', standing:'1', teamImg: '/images/chelsea.png'}
     ],
 
     league: 'Premier League',
@@ -56,6 +56,7 @@ class App extends Component {
           {this.state.teams.map((team) => {
             return <Team 
                       key={team.id}
+                      teamImg={team.teamImg}
                       name={team.name} 
                       standing={team.standing} />
           })}
@@ -71,10 +72,12 @@ class App extends Component {
           leagueUpdate={this.leagueHandler}
           yearUpdate={this.yearHandler}>
         </Selection>
+        <br></br>
 
         {/* This is where the listing of teams is rendered */}
-        {teams}
-
+        <div>
+          {teams}
+        </div>
         <button onClick={this.runAnimationHandler}>Run</button>
       </div>
     );
