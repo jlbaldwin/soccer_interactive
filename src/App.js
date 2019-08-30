@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Team from './Team/Team';
-import Selection from './Selection/Selection';
+import Teams from './components/Teams/Teams';
+import Selection from './components/Selection/Selection';
+import Pitch from './components/Pitch/Pitch';
 
 class App extends Component {
   /*setting default state.
@@ -11,9 +12,9 @@ class App extends Component {
   */
   state = {
     teams: [
-      {id: '1', name: 'Aston Villa', standing:'2', teamImg: '/images/astonvilla.png'},
-      {id: '2', name: 'Brighton', standing:'3', teamImg: '/images/brightonha.png'},
-      {id: '3', name: 'Chelsea', standing:'1', teamImg: '/images/chelsea.png'}
+      {id: '1', name: 'Aston Villa', teamImg: '/images/astonvilla.png'},
+      {id: '2', name: 'Brighton', teamImg: '/images/brightonha.png'},
+      {id: '3', name: 'Chelsea', teamImg: '/images/chelsea.png'}
     ],
 
     league: 'Premier League',
@@ -51,32 +52,24 @@ class App extends Component {
     */
     let teams = null;
     if(this.state.showTeams){
-      teams = (
-        <div>
-          {this.state.teams.map((team) => {
-            return <Team 
-                      key={team.id}
-                      teamImg={team.teamImg}
-                      name={team.name} 
-                      standing={team.standing} />
-          })}
-        </div>
-      )    
+      teams = <Teams teams={this.state.teams} />;    
     }
 
     return (
       //must use className because class is reserved in js
       <div className="App">
-        <h1>Interactive Soccer Standings</h1>
+        
+        <h1>Interactive Football Standings</h1>
+        
         <Selection 
           leagueUpdate={this.leagueHandler}
           yearUpdate={this.yearHandler}>
         </Selection>
         <br></br>
-
+      
         {/* This is where the listing of teams is rendered */}
         <div>
-          {teams}
+          <Pitch teams={this.state.teams} />
         </div>
         <button onClick={this.runAnimationHandler}>Run</button>
       </div>

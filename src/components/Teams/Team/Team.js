@@ -5,7 +5,7 @@ const team = (props) => {
 	return (
 		<div className="team-flex-container">
 			<img alt="" src={props.teamImg} />
-			   {props.name} 
+			{props.name} 
 		</div>
 		)	
 }

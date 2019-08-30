@@ -18,3 +18,18 @@ p {
   align-items: center;
   height: 35px;
 }
+
+#Pitch {
+  background-color: rgb(176, 211, 180);
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+}
+
+.pCol {
+  border: 2px solid orangered;
+}
+
+/* .pRow{
+  background-color: orange;
+} */
