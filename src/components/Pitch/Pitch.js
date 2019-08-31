@@ -10,10 +10,12 @@ const pitch = (props) => {
         <Container id="Pitch">
             <Row noGutters="true">
                 <Col className="pCol">
-                    <Teams teams={props.teams}></Teams>
+                    <Teams teams={props.teams} />
                 </Col>
             </Row>
         </Container>
+        <br></br>
+        <button onClick={props.clicked}>Run</button>
         </div>
     )
 

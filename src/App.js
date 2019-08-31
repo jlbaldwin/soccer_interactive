@@ -3,6 +3,7 @@ import './App.css';
 import Teams from './components/Teams/Teams';
 import Selection from './components/Selection/Selection';
 import Pitch from './components/Pitch/Pitch';
+import teamData from './data';
 
 class App extends Component {
   /*setting default state.
@@ -11,12 +12,7 @@ class App extends Component {
     a db. I'm only including it here to play with the text.
   */
   state = {
-    teams: [
-      {id: '1', name: 'Aston Villa', teamImg: '/images/astonvilla.png'},
-      {id: '2', name: 'Brighton', teamImg: '/images/brightonha.png'},
-      {id: '3', name: 'Chelsea', teamImg: '/images/chelsea.png'}
-    ],
-
+    teams: teamData,
     league: 'Premier League',
     year: '2019',
 
@@ -69,9 +65,11 @@ class App extends Component {
       
         {/* This is where the listing of teams is rendered */}
         <div>
-          <Pitch teams={this.state.teams} />
+          <Pitch teams={this.state.teams} 
+                 clicked={this.runAnimationHandler} />
         </div>
-        <button onClick={this.runAnimationHandler}>Run</button>
+        <br></br>
+        {/* <button onClick={this.runAnimationHandler}>Run</button> */}
       </div>
     );
   }
