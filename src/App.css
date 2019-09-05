@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+ 
+}
+
+body {
+  background-color: #f0fced;
+  
 }
 
 img {
@@ -12,24 +18,40 @@ p {
   color: orange;
 }
 
+/* #Pitch, #teams {
+  width: 100%;
+  background-color: purple;
+  border: 2px solid yellow;
+} */
+
 .team-flex-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 35px;
+  border: 1px solid #6c8765;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #6c8765;
+  margin: 4px;
+
 }
 
 #Pitch {
-  background-color: rgb(176, 211, 180);
-  border: 2px solid black;
   display: flex;
   flex-direction: row;
+  background-color: rgb(176, 211, 180);
+  /* border: 2px solid black; */
+  padding: 2px;
+  /* border-radius: 10px; */
+  /* box-shadow: 1px 1px 1px black; */
+  background-image: radial-gradient(#a6cc9d, #c6e3bf,  #f0fced);
 }
 
 /* .pCol {
   border: 2px solid orangered;
-} */
+} 
 
-/* .pRow{
+.pRow{
   background-color: orange;
+  width: 100%;
 } */

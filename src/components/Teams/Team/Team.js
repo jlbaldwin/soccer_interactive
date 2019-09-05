@@ -4,7 +4,11 @@ import React from 'react';
 const team = (props) => {
 	return (
 		<div className="team-flex-container">
-			<img alt="" src={props.teamImg} />
+			<img 
+				alt="" 
+				id={props.name.toLowerCase().replace(/ /g, "")} 
+				src={props.teamImg} 
+			/>
 			{props.name} 
 		</div>
 		)	

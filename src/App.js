@@ -11,20 +11,45 @@ class App extends Component {
     will come from a db. Standing won't apply to state once connected to 
     a db. I'm only including it here to play with the text.
   */
-  state = {
+  constructor() {
+    super()
+    this.state = {
     teams: teamData,
     league: 'Premier League',
     year: '2019',
-
-    //not needed but leaving for refernce. Refactor later.
-    showTeams: true
+    teamCt: 20, //how to set this dynamically?
+    iterator: 4, //how to set this dynamically?
+    }
+    this.handleAnimation = this.handleAnimation.bind(this)
   }
 
-  //method to change state
-  //testing only to see how onClick works
-  runAnimationHandler = () => {
-    console.log("run was clicked");
+  //trigger initial animation 
+  componentDidMount() {
+    this.handleAnimation();
   }
+
+  //animate team image tags to move across screen
+  handleAnimation () {
+    console.log("team count: ", this.state.teamCt)
+    // for(var i = 0; i < this.state.teamCt; i++){
+    //   console.log(this.state.teams[i].pointsByWeek)
+      
+    // }
+
+    // let start = Date.now();
+    // let timer = setInterval(function() {
+    //   let timePassed = Date.now() - start;
+
+    //   arsenal.style.left = timePassed / 4 + 'px';
+    //   chelsea.style.left = timePassed / 5 + 'px';
+      
+
+    //   if (timePassed > 2000) clearInterval(timer);
+
+    // }, 20);
+
+  }
+
 
   /*league and year handler will need to be updated
     Idea here is to have the state default to EPL current year, then user
@@ -38,7 +63,8 @@ class App extends Component {
 
   yearHandler = (event) => {
     console.log("yearHandler changed");
-}
+  }
+
 
   render() {
 
@@ -47,12 +73,10 @@ class App extends Component {
       this display. 
     */
     let teams = null;
-    if(this.state.showTeams){
-      teams = <Teams teams={this.state.teams} />;    
-    }
+    teams = <Teams teams={this.state.teams} />
 
     return (
-      //must use className because class is reserved in js
+      
       <div className="App">
         
         <h1>Interactive Football Standings</h1>
@@ -61,15 +85,13 @@ class App extends Component {
           leagueUpdate={this.leagueHandler}
           yearUpdate={this.yearHandler}>
         </Selection>
-        <br></br>
+        <br/>
       
         {/* This is where the listing of teams is rendered */}
         <div>
           <Pitch teams={this.state.teams} 
-                 clicked={this.runAnimationHandler} />
+                 clicked={this.handleAnimation} />
         </div>
-        <br></br>
-        {/* <button onClick={this.runAnimationHandler}>Run</button> */}
       </div>
     );
   }

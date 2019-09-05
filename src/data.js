@@ -10,7 +10,7 @@ const teamData = [
     },
     {
         id: 2,
-        name: "Aston Villa",
+        name: "AstonVilla",
         teamImg: "/images/astonvilla.png",
         pointsByWeek: [0,0,3,3]
     },

@@ -8,13 +8,13 @@ const pitch = (props) => {
     return (
         <div>
         <Container id="Pitch">
-            <Row noGutters="true">
+            {/* <Row noGutters="true"> */}
                 <Col className="pCol">
-                    <Teams teams={props.teams} />
+                    <Teams id="teams" teams={props.teams} />
                 </Col>
-            </Row>
+            {/* </Row> */}
         </Container>
-        <br></br>
+        <br/>
         <button onClick={props.clicked}>Run</button>
         </div>
     )
