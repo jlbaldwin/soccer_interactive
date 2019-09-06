@@ -4,6 +4,7 @@ import Teams from './components/Teams/Teams';
 import Selection from './components/Selection/Selection';
 import Pitch from './components/Pitch/Pitch';
 import teamData from './data';
+import { SSL_OP_EPHEMERAL_RSA } from 'constants';
 
 class App extends Component {
   /*setting default state.
@@ -30,6 +31,8 @@ class App extends Component {
     
     }
     this.handleAnimation = this.handleAnimation.bind(this)
+    this.runAnimation = this.runAnimation.bind(this)
+    this.sleep = this.sleep.bind(this)
   }
 
 
@@ -37,19 +40,51 @@ class App extends Component {
 
   //trigger initial animation 
   componentDidMount() {
-    this.handleAnimation();
+    //this.handleAnimation();
   }
+
+  sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds){
+            break;
+        }
+    }
+  }
+
+  runAnimation() {
+
+    //this only triggers once per click
+    // let start = Date.now();
+    // let timer = setInterval(function() {
+    //   let timePassed = Date.now() - start
+
+    //   this.handleAnimation()
+  
+    //   if (timePassed > 2000) clearInterval(timer)
+
+    // })
+
+    for(let i = 0; i < 3; i++){
+      console.log("run animation fired")
+      this.handleAnimation()
+      this.sleep(1000)
+    }
+
+  }
+
 
   //animate team image tags to move across screen
   handleAnimation () {
-    console.log("team count: ", this.state.teamCt)
-
     this.setState(prevState => {
-      let imgStyles = Object.assign({}, prevState.imgStyles)
-      imgStyles.left = 50
-      return {
-        imgStyles
-      }
+
+    
+        let imgStyles = Object.assign({}, prevState.imgStyles)
+        imgStyles.left = prevState.imgStyles.left + 50
+        return {
+          imgStyles
+        }
+
     })
 
     // for(var i = 0; i < this.state.teamCt; i++){
@@ -111,7 +146,7 @@ class App extends Component {
         <div>
           <Pitch teams={this.state.teams} 
                  imgStyles={this.state.imgStyles}
-                 clicked={this.handleAnimation} />
+                 clicked={this.runAnimation} />
         </div>
       </div>
     );
