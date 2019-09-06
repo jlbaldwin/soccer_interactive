@@ -8,10 +8,11 @@ body {
   
 }
 
-img {
+/* img {
   height: 30px;
   width: 30px;
-}
+  position: relative;
+} */
 
 p {
   vertical-align: text-top;

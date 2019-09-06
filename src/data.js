@@ -4,6 +4,7 @@
 const teamData = [
     {
         id: 1,
+        idName: "arsenal",
         name: "Arsenal",
         teamImg: "/images/arsenal.png",
         pointsByWeek: [3,6,6,6]

@@ -19,9 +19,21 @@ class App extends Component {
     year: '2019',
     teamCt: 20, //how to set this dynamically?
     iterator: 4, //how to set this dynamically?
+
+    //using inline style in an attempt to change it in animation
+    imgStyles: {
+      height: 30,
+      width: 30,
+      left: 0,
+      position: "relative"
+    }
+    
     }
     this.handleAnimation = this.handleAnimation.bind(this)
   }
+
+
+
 
   //trigger initial animation 
   componentDidMount() {
@@ -31,6 +43,15 @@ class App extends Component {
   //animate team image tags to move across screen
   handleAnimation () {
     console.log("team count: ", this.state.teamCt)
+
+    this.setState(prevState => {
+      let imgStyles = Object.assign({}, prevState.imgStyles)
+      imgStyles.left = 50
+      return {
+        imgStyles
+      }
+    })
+
     // for(var i = 0; i < this.state.teamCt; i++){
     //   console.log(this.state.teams[i].pointsByWeek)
       
@@ -40,15 +61,14 @@ class App extends Component {
     // let timer = setInterval(function() {
     //   let timePassed = Date.now() - start;
 
-    //   arsenal.style.left = timePassed / 4 + 'px';
-    //   chelsea.style.left = timePassed / 5 + 'px';
+    //   this.state.teams.teamData.idName.style.left = 4 + 'px';
       
 
     //   if (timePassed > 2000) clearInterval(timer);
 
-    // }, 20);
+    // });
 
-  }
+   }
 
 
   /*league and year handler will need to be updated
@@ -90,6 +110,7 @@ class App extends Component {
         {/* This is where the listing of teams is rendered */}
         <div>
           <Pitch teams={this.state.teams} 
+                 imgStyles={this.state.imgStyles}
                  clicked={this.handleAnimation} />
         </div>
       </div>

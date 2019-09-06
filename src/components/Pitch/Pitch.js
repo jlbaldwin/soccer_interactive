@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+//import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Teams from '../Teams/Teams';
 
@@ -10,7 +10,9 @@ const pitch = (props) => {
         <Container id="Pitch">
             {/* <Row noGutters="true"> */}
                 <Col className="pCol">
-                    <Teams id="teams" teams={props.teams} />
+                    <Teams id="teams" 
+                        teams={props.teams} 
+                        imgStyles={props.imgStyles}/>
                 </Col>
             {/* </Row> */}
         </Container>
