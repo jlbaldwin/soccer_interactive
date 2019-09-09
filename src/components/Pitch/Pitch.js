@@ -20,7 +20,6 @@ const pitch = (props) => {
         <button onClick={props.clicked}>Run</button>
         </div>
     )
-
 }
 
 export default pitch;

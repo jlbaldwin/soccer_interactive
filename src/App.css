@@ -1,11 +1,5 @@
 .App {
   text-align: center;
- 
-}
-
-body {
-  background-color: #f0fced;
- 
 }
 
 /* img {
@@ -14,16 +8,6 @@ body {
   position: relative;
 } */
 
-p {
-  vertical-align: text-top;
-  color: orange;
-}
-
-/* #Pitch, #teams {
-  width: 100%;
-  background-color: purple;
-  border: 2px solid yellow;
-} */
 
 .team-flex-container {
   display: flex;
@@ -34,8 +18,8 @@ p {
   border-radius: 10px;
   box-shadow: 1px 1px 1px #6c8765;
   margin: 4px;
-
 }
+
 
 #Pitch {
   display: flex;
