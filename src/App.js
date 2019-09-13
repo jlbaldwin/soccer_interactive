@@ -57,6 +57,8 @@ class App extends Component {
   //   });
   // }  
     
+  // Testing
+
   this.setState(prevState => {
     let imgStyles = Object.assign({}, prevState.imgStyles)
     console.log(imgStyles)
