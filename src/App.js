@@ -6,6 +6,7 @@ import Pitch from './components/Pitch/Pitch';
 import teamData from './data';
 
 
+
 class App extends Component {
   /*setting default state.
     Ultimately the state will default to Premier League, 2019 but the state
@@ -24,13 +25,12 @@ class App extends Component {
       imgStyles: {
         height: 30,
         width: 30,
-        left: 0,
-        position: "relative"
+        position: "relative",
+        transition: "transform 2s",
+        transform: "translateX(0px)"
       } 
     }
     this.handleAnimation = this.handleAnimation.bind(this)
-    this.runAnimation = this.runAnimation.bind(this)
-    this.sleep = this.sleep.bind(this)
   }
 
 
@@ -40,42 +40,42 @@ class App extends Component {
   }
 
 
-  sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds){
-        break;
-      }
-    }
-  }
-
-
-  runAnimation() {
-
-    for(let i =0; i < 3; i++){
-      this.handleAnimation()
-      this.forceUpdate()
-      this.sleep(200)
-      console.log("runAnimation loop")
-    }
-}
-
-
   //animate team image tags to move across screen
   handleAnimation () {
-
-    // for(let i =0; i < 5; i++){
-      this.setState(prevState => {
-          let imgStyles = Object.assign({}, prevState.imgStyles)
-          imgStyles.left = prevState.imgStyles.left + 30
-          return {
-            imgStyles
-          }
+  //   teamData.forEach((element, index) => {
+  //     this.setState(prevState => {
+  //       let imgStyles = Object.assign({}, prevState.imgStyles)
+  //       imgStyles.transform = "translateX(" + 
+  //                             (this.state.teams[index].pointsByWeek[3] * 20) + 
+  //                             "px)"
+  //       console.log("run sucka " + this.state.teams[index].name +
+  //                   " " + this.state.teams[index].pointsByWeek[3] * 20)
+  //       return {
+  //         imgStyles
+  //       }
+  //     })
+  //   });
+  // }  
+    
+  this.setState(prevState => {
+    let imgStyles = Object.assign({}, prevState.imgStyles)
+    console.log(imgStyles)
+      teamData.forEach((element, index) => {
+     
+        imgStyles.transform = "translateX(" + 
+                              (this.state.teams[index].pointsByWeek[3] * 10) + 
+                              "px)"
+        console.log("run sucka " + this.state.teams[index].name +
+                    " " + this.state.teams[index].pointsByWeek[3] * 10)
+        
       })
-      // this.sleep(200)
-      // console.log("handleAnimation loop")
-    // }
-   }
+      return {
+        imgStyles
+      }
+      
+    });
+  }  
+
 
 
   /*league and year handler will need to be updated
@@ -117,7 +117,7 @@ class App extends Component {
         <div>
           <Pitch teams={this.state.teams} 
                  imgStyles={this.state.imgStyles}
-                 clicked={this.runAnimation} />
+                 clicked={this.handleAnimation} />
         </div>
       </div>
     );

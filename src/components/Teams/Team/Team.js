@@ -4,7 +4,7 @@ const team = (props) => {
 	
 	return (
 		<div className="team-flex-container">
-			<img 
+			<img className="team-img"
 				style={props.imgStyles}
 				alt="" 
 				id={props.name.toLowerCase().replace(/ /g, "")} 

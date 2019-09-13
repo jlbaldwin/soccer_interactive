@@ -20,6 +20,14 @@
   margin: 4px;
 }
 
+/* .team-img {
+  height: 30;
+  width: 30;
+  position: relative;
+  transition: transform 2s;
+  transform: translateX(0px);
+} */
+
 
 #Pitch {
   display: flex;
