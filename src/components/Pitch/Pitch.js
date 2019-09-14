@@ -15,8 +15,7 @@ const pitch = (props) => {
                 {/* <Row noGutters="true"> */}
                     <Col className="pCol">
                         <Teams id="teams" 
-                            teams={props.teams} 
-                            imgStyles={props.imgStyles}/>
+                            teams={props.teams} />
                     </Col>
                 {/* </Row> */}
             </Container>

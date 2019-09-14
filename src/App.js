@@ -4,6 +4,7 @@ import Teams from './components/Teams/Teams';
 import Selection from './components/Selection/Selection';
 import Pitch from './components/Pitch/Pitch';
 import teamData from './data';
+import team from './components/Teams/Team/Team';
 
 
 
@@ -23,11 +24,11 @@ class App extends Component {
 
       //using inline style in an attempt to change it in handleAnimation()
       imgStyles: {
-        height: 30,
-        width: 30,
-        position: "relative",
-        transition: "transform 2s",
-        transform: "translateX(0px)"
+        // height: 30,
+        // width: 30,
+        // position: "relative",
+        // transition: "transform 2s",
+        // transform: "translateX(0px)"
       } 
     }
     this.handleAnimation = this.handleAnimation.bind(this)
@@ -36,7 +37,8 @@ class App extends Component {
 
   //trigger initial animation 
   componentDidMount() {
-    //this.handleAnimation();
+    // let startingVal = 0
+    // this.handleAnimation(startingVal);
   }
 
 
@@ -57,28 +59,36 @@ class App extends Component {
   //   });
   // }  
     
-  // Testing
 
-  this.setState(prevState => {
-    let imgStyles = Object.assign({}, prevState.imgStyles)
-    console.log(imgStyles)
-      teamData.forEach((element, index) => {
-     
-        imgStyles.transform = "translateX(" + 
-                              (this.state.teams[index].pointsByWeek[3] * 10) + 
+  // teamData.forEach((element, index) => {
+  //       this.setState(prevState => {
+  //         let teamData = Object.assign({}, prevState.teamData)
+  //         element.transform = "translateX(" + 
+  //                               (startingVal) + 
+  //                               "px)"
+  //         console.log("run sucka " + this.state.teams[index].name +
+  //                     " " + startingVal)
+  //         return {
+  //           teamData
+  //         }
+  //       })
+  //     });
+  //   }  
+      
+    teamData.forEach((element, index) => {
+      this.setState(prevState => {
+        let teamData = Object.assign({}, prevState.teamData)
+        element.transform = "translateX(" + 
+                              (this.state.teams[index].pointsByWeek[3] * 20) + 
                               "px)"
         console.log("run sucka " + this.state.teams[index].name +
-                    " " + this.state.teams[index].pointsByWeek[3] * 10)
-        
+                    " " + this.state.teams[index].pointsByWeek[3] * 20)
+        return {
+          teamData
+        }
       })
-      return {
-        imgStyles
-      }
-      
     });
-  }  
-
-
+  }
 
   /*league and year handler will need to be updated
     Idea here is to have the state default to EPL current year, then user
@@ -118,7 +128,6 @@ class App extends Component {
         {/* This is where the listing of teams is rendered */}
         <div>
           <Pitch teams={this.state.teams} 
-                 imgStyles={this.state.imgStyles}
                  clicked={this.handleAnimation} />
         </div>
       </div>
