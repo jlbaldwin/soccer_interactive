@@ -6,7 +6,8 @@ const teams = (props) => props.teams.map((team) => {
                 key={team.id}
                 teamImg={team.teamImg}
                 name={team.name} 
-                transform={team.transform}/>
+                transform={team.transform}
+                transition={team.transition}/>
     });
    
 export default teams; 

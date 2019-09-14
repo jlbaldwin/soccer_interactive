@@ -24,7 +24,7 @@
   height: 30px;
   width: 30px;
   position: relative;
-  transition: transform 2s;
+  /* transition: transform 2s; */
   /* transform: translateX(100px); */
 }
 

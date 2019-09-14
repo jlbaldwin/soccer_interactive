@@ -5,7 +5,7 @@ const team = (props) => {
 	return (
 		<div className="team-flex-container">
 			<img className="team-img"
-				style={{transform: props.transform}}
+				style={{transition: props.transition, transform: props.transform}}
 				alt="" 
 				id={props.name.toLowerCase().replace(/ /g, "")} 
 				src={props.teamImg} 

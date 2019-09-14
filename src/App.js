@@ -31,16 +31,74 @@ class App extends Component {
         // transform: "translateX(0px)"
       } 
     }
+    this.initialAnimation = this.handleAnimation.bind(this)
     this.handleAnimation = this.handleAnimation.bind(this)
+    this.replayAnimation = this.replayAnimation.bind(this)
   }
 
 
   //trigger initial animation 
   componentDidMount() {
-    // let startingVal = 0
-    // this.handleAnimation(startingVal);
+    // let pxVal = 0
+    // this.handleAnimation(pxVal)
+    this.initialAnimation()
   }
 
+  initialAnimation(){
+    teamData.forEach((element, index) => {
+      this.setState(prevState => {
+        let teamData = Object.assign({}, prevState.teamData)
+        element.transition = "transform " + 2 + "s"
+        console.log(element.transition)
+        element.transform = "translateX(" + 
+                              (this.state.teams[index].pointsByWeek[3] * 20) + 
+                              "px)"
+        console.log("run sucka " + this.state.teams[index].name +
+                    " " + this.state.teams[index].pointsByWeek[3] * 20)
+        return {
+          teamData
+        }
+      })
+    });
+  }
+  
+
+  replayAnimation(){
+    setTimeout(() => {
+    let pxVal = 0
+    teamData.forEach((element, index) => {
+      this.setState(prevState => {
+        let teamData = Object.assign({}, prevState.teamData)
+        element.transition = "transform " + 0 + "s"
+        element.transform = "translateX(" + 
+                              (pxVal) + 
+                              "px)"
+        console.log("run sucka " + this.state.teams[index].name +
+                    " " + pxVal)
+        return {
+          teamData
+        }
+      })
+    });
+  }, 0);
+
+  setTimeout(() => {
+    teamData.forEach((element, index) => {
+      this.setState(prevState => {
+        let teamData = Object.assign({}, prevState.teamData)
+        element.transition = "transform " + 2 + "s"
+        element.transform = "translateX(" + 
+                              (this.state.teams[index].pointsByWeek[3] * 20) + 
+                              "px)"
+        console.log("run sucka " + this.state.teams[index].name +
+                    " " + this.state.teams[index].pointsByWeek[3] * 20)
+        return {
+          teamData
+        }
+      })
+    });
+  }, 200);
+  }
 
   //animate team image tags to move across screen
   handleAnimation () {
@@ -60,20 +118,20 @@ class App extends Component {
   // }  
     
 
-  // teamData.forEach((element, index) => {
-  //       this.setState(prevState => {
-  //         let teamData = Object.assign({}, prevState.teamData)
-  //         element.transform = "translateX(" + 
-  //                               (startingVal) + 
-  //                               "px)"
-  //         console.log("run sucka " + this.state.teams[index].name +
-  //                     " " + startingVal)
-  //         return {
-  //           teamData
-  //         }
-  //       })
-  //     });
-  //   }  
+  //   teamData.forEach((element, index) => {
+  //     this.setState(prevState => {
+  //       let teamData = Object.assign({}, prevState.teamData)
+  //       element.transform = "translateX(" + 
+  //                             (pxVal) + 
+  //                             "px)"
+  //       console.log("run sucka " + this.state.teams[index].name +
+  //                   " " + pxVal)
+  //       return {
+  //         teamData
+  //       }
+  //     })
+  //   });
+  // }   
       
     teamData.forEach((element, index) => {
       this.setState(prevState => {
@@ -128,7 +186,8 @@ class App extends Component {
         {/* This is where the listing of teams is rendered */}
         <div>
           <Pitch teams={this.state.teams} 
-                 clicked={this.handleAnimation} />
+                 clicked={this.handleAnimation} 
+                 replay={this.replayAnimation}/>
         </div>
       </div>
     );

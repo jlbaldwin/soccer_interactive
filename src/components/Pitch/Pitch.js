@@ -29,7 +29,7 @@ const pitch = (props) => {
                 <Button variant="secondary">
                     <FontAwesomeIcon icon={faAngleLeft} />
                 </Button>
-                <Button onClick={props.clicked} variant="secondary">
+                <Button onClick={props.replay} variant="secondary">
                     <FontAwesomeIcon icon={faRedoAlt} />
                 </Button>
                 <Button variant="secondary">
