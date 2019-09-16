@@ -11,18 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const pitch = (props) => {
     return (
         <div>
-            <Container id="Pitch">
-                {/* <Row noGutters="true"> */}
-                    <Col className="pCol">
-                        <Teams id="teams" 
-                            teams={props.teams} />
-                    </Col>
-                {/* </Row> */}
-            </Container>
-
-            <br/>
-
-            <ButtonGroup aria-label="Basic example">
+            <ButtonGroup id="animationButtonGroup" aria-label="Basic example">
                 <Button onClick={props.backStart} variant="secondary">
                     <FontAwesomeIcon icon={faAngleDoubleLeft} />
                 </Button>
@@ -39,6 +28,15 @@ const pitch = (props) => {
                     <FontAwesomeIcon icon={faAngleDoubleRight} />
                 </Button>
             </ButtonGroup>
+
+            <Container id="Pitch">
+                {/* <Row noGutters="true"> */}
+                    <Col className="pCol">
+                        <Teams id="teams" 
+                            teams={props.teams} />
+                    </Col>
+                {/* </Row> */}
+            </Container>          
         </div>
     )
 }
