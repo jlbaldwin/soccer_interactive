@@ -116,7 +116,7 @@ const teamData = [
         id: 19,
         name: "West Ham United",
         teamImg: "/images/westham.png",
-        pointsByWeek: [0,0,1,4,7,7], // pending
+        pointsByWeek: [0,0,1,4,7,8], // pending
     },
     {
         id: 20,
