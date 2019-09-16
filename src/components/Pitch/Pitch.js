@@ -23,19 +23,19 @@ const pitch = (props) => {
             <br/>
 
             <ButtonGroup aria-label="Basic example">
-                <Button variant="secondary">
+                <Button onClick={props.backStart} variant="secondary">
                     <FontAwesomeIcon icon={faAngleDoubleLeft} />
                 </Button>
-                <Button variant="secondary">
+                <Button onClick={props.backOne} variant="secondary">
                     <FontAwesomeIcon icon={faAngleLeft} />
                 </Button>
                 <Button onClick={props.replay} variant="secondary">
                     <FontAwesomeIcon icon={faRedoAlt} />
                 </Button>
-                <Button variant="secondary">
+                <Button onClick={props.forwardOne} variant="secondary">
                     <FontAwesomeIcon icon={faAngleRight} />
                 </Button>
-                <Button variant="secondary">
+                <Button onClick={props.forwardEnd} variant="secondary">
                     <FontAwesomeIcon icon={faAngleDoubleRight} />
                 </Button>
             </ButtonGroup>
