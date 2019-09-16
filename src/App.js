@@ -19,62 +19,170 @@ class App extends Component {
       league: 'Premier League',
       year: '2019',
       teamCt: 20, //how to set this dynamically?
-      iterator: 4, //how to set this dynamically?
-
-      //using inline style in an attempt to change it in handleAnimation()
-      imgStyles: {
-        height: 30,
-        width: 30,
-        position: "relative",
-        transition: "transform 2s",
-        transform: "translateX(0px)"
-      } 
+      orgIterator: 5,
+      iterator: 5, //how to set this dynamically?
     }
-    this.handleAnimation = this.handleAnimation.bind(this)
+
+    this.initialAnimation = this.initialAnimation.bind(this)
+    this.backOneAnimation = this.backOneAnimation.bind(this)
+    this.backStartAnimation = this.backStartAnimation.bind(this)
+    this.replayAnimation = this.replayAnimation.bind(this)
+    this.forwardOneAnimation = this.forwardOneAnimation.bind(this)
+    this.forwardEndAnimation = this.forwardEndAnimation.bind(this)
   }
 
 
   //trigger initial animation 
   componentDidMount() {
-    //this.handleAnimation();
+    this.initialAnimation()
   }
 
-
-  //animate team image tags to move across screen
-  handleAnimation () {
-  //   teamData.forEach((element, index) => {
-  //     this.setState(prevState => {
-  //       let imgStyles = Object.assign({}, prevState.imgStyles)
-  //       imgStyles.transform = "translateX(" + 
-  //                             (this.state.teams[index].pointsByWeek[3] * 20) + 
-  //                             "px)"
-  //       console.log("run sucka " + this.state.teams[index].name +
-  //                   " " + this.state.teams[index].pointsByWeek[3] * 20)
-  //       return {
-  //         imgStyles
-  //       }
-  //     })
-  //   });
-  // }  
-    
-  this.setState(prevState => {
-    let imgStyles = Object.assign({}, prevState.imgStyles)
-    console.log(imgStyles)
+/************************************************************************/
+/************************************************************************/   
+  initialAnimation(){
+    setTimeout(() => {
+      // let pxVal = 0
       teamData.forEach((element, index) => {
-     
-        imgStyles.transform = "translateX(" + 
-                              (this.state.teams[index].pointsByWeek[3] * 10) + 
+        this.setState(prevState => {
+          let teamData = Object.assign({}, prevState.teamData)
+          element.transition = "transform 0s"
+          element.transform = "translateX(0px)"
+          return {
+            teamData
+          }
+        })
+      });
+    }, 0);
+
+    setTimeout(() => {
+      teamData.forEach((element, index) => {
+        this.setState(prevState => {
+          let teamData = Object.assign({}, prevState.teamData)
+          element.transition = "transform 1s"
+          element.transform = "translateX(" + 
+                                (this.state.teams[index].pointsByWeek[this.state.iterator] * 20) + 
+                                "px)"
+          return {
+            teamData
+          }
+        })
+      });
+    }, 200);
+  }
+  
+/************************************************************************/
+/************************************************************************/   
+  replayAnimation(){
+    setTimeout(() => {
+      // let pxVal = 0
+      teamData.forEach((element, index) => {
+        this.setState(prevState => {
+          let teamData = Object.assign({}, prevState.teamData)
+          element.transition = "transform 0s"
+          element.transform = "translateX(0px)"
+          return {
+            teamData
+          }
+        })
+      });
+    }, 0);
+
+    setTimeout(() => {
+      teamData.forEach((element, index) => {
+        this.setState(prevState => {
+          let teamData = Object.assign({}, prevState.teamData)
+          element.transition = "transform " + 1 + "s"
+          element.transform = "translateX(" + 
+                                (this.state.teams[index].pointsByWeek[this.state.orgIterator] * 20) + 
+                                "px)"
+          let iterator = this.state.orgIterator
+          return {
+            teamData, iterator
+          }
+        })
+      });
+    }, 200);
+  }
+
+/************************************************************************/
+/************************************************************************/   
+backOneAnimation(){
+  
+  if(this.state.iterator > 0){
+    teamData.forEach((element, index) => {
+      this.setState(prevState => {
+        let teamData = Object.assign({}, prevState.teamData)
+        element.transition = "transform " + 1 + "s"
+        element.transform = "translateX(" + 
+                              (this.state.teams[index].pointsByWeek[this.state.iterator - 1] * 20) + 
                               "px)"
-        console.log("run sucka " + this.state.teams[index].name +
-                    " " + this.state.teams[index].pointsByWeek[3] * 10)
-        
+        let iterator = this.state.iterator 
+        iterator = this.state.iterator - 1
+        return {
+          teamData, iterator
+        }
       })
-      return {
-        imgStyles
-      }
-      
     });
-  }  
+  }
+}
+
+/************************************************************************/
+/************************************************************************/   
+backStartAnimation(){
+  teamData.forEach((element, index) => {
+    this.setState(prevState => {
+      let teamData = Object.assign({}, prevState.teamData)
+      element.transition = "transform " + 1 + "s"
+      element.transform = "translateX(" + 
+                            (this.state.teams[index].pointsByWeek[0] * 20) + 
+                            "px)"
+      let iterator = 0
+      return {
+        teamData, iterator
+      }
+    })
+  });
+}
+
+/************************************************************************/
+// SET ERROR CHECKING
+/************************************************************************/   
+forwardOneAnimation(){
+  if(this.state.iterator < this.state.orgIterator){
+    teamData.forEach((element, index) => {
+      let iterator = this.state.iterator 
+      iterator = this.state.iterator + 1
+      this.setState(prevState => {
+        let teamData = Object.assign({}, prevState.teamData)
+        element.transition = "transform " + 1 + "s"
+        element.transform = "translateX(" + 
+                              (this.state.teams[index].pointsByWeek[iterator] * 20) + 
+                              "px)"
+        return {
+          teamData, iterator
+        }
+      })
+    });
+  }
+}  
+
+/************************************************************************/
+/************************************************************************/   
+forwardEndAnimation(){
+  teamData.forEach((element, index) => {
+    let iterator = this.state.orgIterator 
+    this.setState(prevState => {
+      let teamData = Object.assign({}, prevState.teamData)
+      element.transition = "transform " + 1 + "s"
+      element.transform = "translateX(" + 
+                            (this.state.teams[index].pointsByWeek[iterator] * 20) + 
+                            "px)"
+      return {
+        teamData, iterator
+      }
+    })
+  });
+}
 
 
 
@@ -116,8 +224,12 @@ class App extends Component {
         {/* This is where the listing of teams is rendered */}
         <div>
           <Pitch teams={this.state.teams} 
-                 imgStyles={this.state.imgStyles}
-                 clicked={this.handleAnimation} />
+                 backOne={this.backOneAnimation}
+                 backStart={this.backStartAnimation}
+                 replay={this.replayAnimation}
+                 forwardOne={this.forwardOneAnimation}
+                 forwardEnd={this.forwardEndAnimation} 
+                />
         </div>
       </div>
     );
