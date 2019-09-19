@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Teams from './components/Teams/Teams';
-import Selection from './components/Selection/Selection';
+// import Selection from './components/Selection/Selection';
 import Pitch from './components/Pitch/Pitch';
+import Controls from './components/Controls/Controls';
 import teamData from './data';
 
 //css transition property passed to team-img in Team.js for animation
@@ -39,7 +40,12 @@ class App extends Component {
   componentDidMount() {
     this.initialAnimation()
   }
-
+_scale = () => {
+  let queryArea = document.querySelector(".team-flex-container")
+  if (queryArea) {
+    return queryArea.clientWidth
+  }
+}
 /*********************************************************************************
 * On page load, setState is called twice, once to set state for images to be left
 * aligned, then the images are animated and move right according to the team's
@@ -227,16 +233,14 @@ forwardEndAnimation(){
           yearUpdate={this.yearHandler}>
         </Selection> */}
       
-        {/* This is where the listing of teams is rendered */}
-        <div>
-          <Pitch teams={this.state.teams} 
+        <Controls teams={this.state.teams} 
                  backOne={this.backOneAnimation}
                  backStart={this.backStartAnimation}
                  replay={this.replayAnimation}
                  forwardOne={this.forwardOneAnimation}
-                 forwardEnd={this.forwardEndAnimation} 
-                />
-        </div>
+                 forwardEnd={this.forwardEndAnimation} />
+
+        <Pitch teams={this.state.teams} />
       </div>
     );
   }

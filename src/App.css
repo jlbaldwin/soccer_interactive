@@ -1,5 +1,31 @@
 .App {
   text-align: center;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+}
+
+
+#Pitch.container{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+  align-items: center;
+}
+
+
+
+#Pitch {
+  display: flex;
+  flex-direction: row;
+
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+
+h1{
+  color: #37003c;
 }
 
 .team-flex-container {
@@ -7,11 +33,14 @@
   flex-direction: row;
   align-items: center;
   height: 35px;
-  border: 1px solid #6c8765;
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px #6c8765;
   margin: 4px;
+  background-image: linear-gradient(to right,
+                    rgba(0, 0, 0, 0),
+                    rgba(55, 0, 60, 0.2) 85%, 
+                    rgba(0, 0, 0, 0));
+                    /* rgba(55, 0, 60, 0.2)); */
 }
+
 
 .team-img {
   height: 30px;
@@ -19,26 +48,23 @@
   position: relative;
 }
 
-#Pitch {
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(176, 211, 180);
-  /* border: 2px solid black; */
-  padding: 2px;
-  /* border-radius: 10px; */
-  /* box-shadow: 1px 1px 1px black; */
-  background-image: radial-gradient(#a6cc9d, #c6e3bf,  #f0fced);
-}
 
 #animationButtonGroup {
   margin-bottom: 5px;
 }
 
-/* .pCol {
-  border: 2px solid orangered;
-} 
 
-.pRow{
-  background-color: orange;
-  width: 100%;
-} */
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+
+/* .pCol {
+  position: absolute;
+}   */
+
+/* .pRow{
+  position: absolute;
+}  */

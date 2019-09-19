@@ -1,5 +1,6 @@
 import React from 'react';
 import Team from './Team/Team';
+import './Teams.css'
 
 const teams = (props) => props.teams.map((team) => {
         return <Team
@@ -7,7 +8,8 @@ const teams = (props) => props.teams.map((team) => {
                 teamImg={team.teamImg}
                 name={team.name} 
                 transform={team.transform}
-                transition={team.transition}/>
+                transition={team.transition}
+                />
     });
    
 export default teams; 
