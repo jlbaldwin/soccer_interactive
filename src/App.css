@@ -1,5 +1,50 @@
 .App {
   text-align: center;
+  background-color: rgb(255, 255, 255);
+
+  position: relative;
+}
+
+#Pitch.container{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 100%;
+  align-items: center; 
+}
+
+#Pitch {
+  display: flex;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 111px;
+  z-index: 1;
+}
+
+header {
+  position: fixed;
+  height: 115px;
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+} 
+
+h2{
+  background-color: rgba(55, 0, 60, .9);
+  color: white;
+  font-family: Georgia,Times,Times New Roman,serif; 
+  padding: 1%;
+  text-align: left;
+}
+
+#soccer-img {
+  margin-right: 2%;
+  margin-left: 3%;
+}
+
+#week-number {
+  float: right;
+  margin-right: 5%;
 }
 
 .team-flex-container {
@@ -7,38 +52,38 @@
   flex-direction: row;
   align-items: center;
   height: 35px;
-  border: 1px solid #6c8765;
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px #6c8765;
   margin: 4px;
+  background-image: linear-gradient(to right,
+                    rgba(0, 0, 0, 0),
+                    rgba(55, 0, 60, 0.2) 85%, 
+                    rgba(0, 0, 0, 0));
 }
 
 .team-img {
   height: 30px;
   width: 30px;
   position: relative;
+  z-index: 1;
 }
 
-#Pitch {
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(176, 211, 180);
-  /* border: 2px solid black; */
-  padding: 2px;
-  /* border-radius: 10px; */
-  /* box-shadow: 1px 1px 1px black; */
-  background-image: radial-gradient(#a6cc9d, #c6e3bf,  #f0fced);
+.team-text {
+  padding-left: 1%;
+  position: relative;
+  width: 100%;
+  text-align: left;
+
+  color: rgba(55, 0, 60);
+  font-family: Georgia,Times,Times New Roman,serif; 
+  font-size: larger;
+  font-weight: bold;
+  opacity: .5;
 }
 
 #animationButtonGroup {
   margin-bottom: 5px;
 }
 
-/* .pCol {
-  border: 2px solid orangered;
-} 
-
-.pRow{
-  background-color: orange;
-  width: 100%;
-} */
+.btn.btn-secondary {
+  background-color: rgba(55, 0, 60, .9);
+  border: rgba(55, 0, 60, .8);
+}
