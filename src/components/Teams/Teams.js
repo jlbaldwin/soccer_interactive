@@ -1,3 +1,5 @@
+//Displays all teams
+
 import React from 'react';
 import Team from './Team/Team';
 import './Teams.css'

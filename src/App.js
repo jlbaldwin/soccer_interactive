@@ -11,6 +11,8 @@ import { faFutbol } from "@fortawesome/free-solid-svg-icons";
 
 //css transition property passed to team-img in Team.js for animation
 var transitionSetting = "transform 1s"
+
+//scale is used to animate team-img horizontally based on points earned
 var scale = 15
 
 class App extends Component {
@@ -43,30 +45,30 @@ class App extends Component {
   componentDidMount() {
     this.initialAnimation()
   }
-_scale = () => {
-  let queryArea = document.querySelector(".team-flex-container")
-  if (queryArea) {
-    return queryArea.clientWidth
-  }
-}
+//working with this related to scale
+// _scale = () => {
+//   let queryArea = document.querySelector(".team-flex-container")
+//   if (queryArea) {
+//     return queryArea.clientWidth
+//   }
+// }
+
 /*********************************************************************************
 * On page load, setState is called twice, once to set state for images to be left
 * aligned, then the images are animated and move right according to the team's
 * current point standing in pointsByWeek[]
 *********************************************************************************/   
   initialAnimation(){
-    setTimeout(() => {
-      teamData.forEach((element, index) => {
-        this.setState(prevState => {
-          let teamData = Object.assign({}, prevState.teamData)
-          element.transition = "transform 0s"
-          element.transform = "translateX(0px)"
-          return {
-            teamData
-          }
-        })
-      });
-    }, 0);
+    teamData.forEach((element, index) => {
+      this.setState(prevState => {
+        let teamData = Object.assign({}, prevState.teamData)
+        element.transition = "transform 0s"
+        element.transform = "translateX(0px)"
+        return {
+          teamData
+        }
+      })
+    });
 
     setTimeout(() => {
       teamData.forEach((element, index) => {
@@ -90,7 +92,6 @@ _scale = () => {
 * original iterator value.
 *********************************************************************************/    
   replayAnimation(){
-    setTimeout(() => {
       teamData.forEach((element, index) => {
         this.setState(prevState => {
           let teamData = Object.assign({}, prevState.teamData)
@@ -101,7 +102,6 @@ _scale = () => {
           }
         })
       });
-    }, 0);
 
     setTimeout(() => {
       teamData.forEach((element, index) => {
@@ -124,7 +124,6 @@ _scale = () => {
 * iterator cannot be less than zero. If iterator is 0, no animation occurs.  
 *********************************************************************************/     
 backOneAnimation(){
-  
   if(this.state.iterator > 0){
     teamData.forEach((element, index) => {
       this.setState(prevState => {
@@ -201,7 +200,6 @@ forwardEndAnimation(){
   });
 }
 
-
   /*league and year handler will need to be updated
     Idea here is to have the state default to EPL current year, then user
     can update the league and year. May (or not) want to trigger state change
@@ -226,9 +224,7 @@ forwardEndAnimation(){
     teams = <Teams teams={this.state.teams} />
 
     return (
-      
       <div className="App">
-        <div id="header">
         <header>
           <h2>
             <span >
@@ -252,10 +248,9 @@ forwardEndAnimation(){
                   forwardOne={this.forwardOneAnimation}
                   forwardEnd={this.forwardEndAnimation} />
         </header>
-        </div>
-        <div>
-          <Pitch teams={this.state.teams} />
-          </div>
+        
+        <Pitch teams={this.state.teams} />
+      
       </div>
     );
   }

@@ -1,3 +1,9 @@
+/* 
+    Selection is not currently used. 
+    This compomnent will allow users to select a league / year 
+    combination to animate.
+*/
+
 import React from 'react';
 
 const selection = (props) => {

@@ -1,3 +1,5 @@
+//Used in the App component to animate images
+
 import React from 'react';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
@@ -25,6 +27,5 @@ const controls = (props) => {
         </ButtonGroup>
     )
 }
-
 
 export default controls;
