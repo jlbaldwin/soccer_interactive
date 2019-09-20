@@ -10,7 +10,9 @@ const team = (props) => {
 				id={props.name.toLowerCase().replace(/ /g, "")} 
 				src={props.teamImg} 
 			/>
+			<span className="team-text">
 				{props.name} 
+			</span>
 		</div>
 		)	
 }

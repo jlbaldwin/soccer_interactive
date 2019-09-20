@@ -5,6 +5,9 @@ import Teams from './components/Teams/Teams';
 import Pitch from './components/Pitch/Pitch';
 import Controls from './components/Controls/Controls';
 import teamData from './data';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFutbol } from "@fortawesome/free-solid-svg-icons";
+
 
 //css transition property passed to team-img in Team.js for animation
 var transitionSetting = "transform 1s"
@@ -225,22 +228,34 @@ forwardEndAnimation(){
     return (
       
       <div className="App">
+        <div id="header">
+        <header>
+          <h2>
+            <span >
+              <FontAwesomeIcon id="soccer-img" icon={faFutbol}/>
+              {this.state.league} Standings 
+            </span>
+            <span id="week-number">
+              {this.state.year} - Week {this.state.iterator}
+            </span>
+          </h2>
+          
+          {/* <Selection 
+            leagueUpdate={this.leagueHandler}
+            yearUpdate={this.yearHandler}>
+          </Selection> */}
         
-        <h1>{this.state.league} Standings {this.state.year}</h1>
-        
-        {/* <Selection 
-          leagueUpdate={this.leagueHandler}
-          yearUpdate={this.yearHandler}>
-        </Selection> */}
-      
-        <Controls teams={this.state.teams} 
-                 backOne={this.backOneAnimation}
-                 backStart={this.backStartAnimation}
-                 replay={this.replayAnimation}
-                 forwardOne={this.forwardOneAnimation}
-                 forwardEnd={this.forwardEndAnimation} />
-
-        <Pitch teams={this.state.teams} />
+          <Controls teams={this.state.teams} 
+                  backOne={this.backOneAnimation}
+                  backStart={this.backStartAnimation}
+                  replay={this.replayAnimation}
+                  forwardOne={this.forwardOneAnimation}
+                  forwardEnd={this.forwardEndAnimation} />
+        </header>
+        </div>
+        <div>
+          <Pitch teams={this.state.teams} />
+          </div>
       </div>
     );
   }

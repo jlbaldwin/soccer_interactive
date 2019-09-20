@@ -1,31 +1,50 @@
 .App {
   text-align: center;
   background-color: rgb(255, 255, 255);
+
   position: relative;
 }
-
 
 #Pitch.container{
   display: flex;
   flex-direction: row;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  align-items: center;
+  align-items: center; 
 }
-
-
 
 #Pitch {
   display: flex;
-  flex-direction: row;
-
   padding-left: 3%;
   padding-right: 3%;
+  padding-top: 111px;
+  z-index: 1;
 }
 
+header {
+  position: fixed;
+  height: 115px;
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+} 
 
-h1{
-  color: #37003c;
+h2{
+  background-color: rgba(55, 0, 60, .9);
+  color: white;
+  font-family: Georgia,Times,Times New Roman,serif; 
+  padding: 1%;
+  text-align: left;
+}
+
+#soccer-img {
+  margin-right: 2%;
+  margin-left: 3%;
+}
+
+#week-number {
+  float: right;
+  margin-right: 5%;
 }
 
 .team-flex-container {
@@ -38,33 +57,33 @@ h1{
                     rgba(0, 0, 0, 0),
                     rgba(55, 0, 60, 0.2) 85%, 
                     rgba(0, 0, 0, 0));
-                    /* rgba(55, 0, 60, 0.2)); */
 }
-
 
 .team-img {
   height: 30px;
   width: 30px;
   position: relative;
+  z-index: 1;
 }
 
+.team-text {
+  padding-left: 1%;
+  position: relative;
+  width: 100%;
+  text-align: left;
+
+  color: rgba(55, 0, 60);
+  font-family: Georgia,Times,Times New Roman,serif; 
+  font-size: larger;
+  font-weight: bold;
+  opacity: .5;
+}
 
 #animationButtonGroup {
   margin-bottom: 5px;
 }
 
-
-hr.style-two {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+.btn.btn-secondary {
+  background-color: rgba(55, 0, 60, .9);
+  border: rgba(55, 0, 60, .8);
 }
-
-
-/* .pCol {
-  position: absolute;
-}   */
-
-/* .pRow{
-  position: absolute;
-}  */
