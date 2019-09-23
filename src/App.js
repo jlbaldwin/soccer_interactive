@@ -28,8 +28,8 @@ class App extends Component {
       league: 'Premier League',
       year: '2019',
       teamCt: 20, 
-      orgIterator: 5,
-      iterator: 5, 
+      orgIterator: 6,
+      iterator: 6, 
     }
 
     this.initialAnimation = this.initialAnimation.bind(this)
