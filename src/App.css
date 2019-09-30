@@ -3,25 +3,17 @@
   position: relative;
 }
 
-#Pitch.container{
-  display: flex;
-  flex-direction: row;
-  position: fixed;
-  width: 100%;
-  align-items: center; 
-}
-
 #Pitch {
   display: flex;
   padding-left: 3%;
   padding-right: 3%;
-  padding-top: 115px;
+  padding-top: 110px;
   z-index: 1;
 }
 
 header {
   position: fixed;
-  height: 115px;
+  height: 110px;
   width: 100%;
   background-color: white;
   z-index: 2;
