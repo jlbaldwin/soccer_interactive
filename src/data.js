@@ -8,7 +8,7 @@ const teamData = [
         id: 1,
         name: "Arsenal",
         teamImg: "/images/arsenal.png",
-        pointsByWeek: [0,3,6,6,7,8,11,11], //pending
+        pointsByWeek: [0,3,6,6,7,8,11,12],
     },
     {
         id: 2,
@@ -74,7 +74,7 @@ const teamData = [
         id: 12,
         name: "Manchester United",
         teamImg: "/images/manunited.png",
-        pointsByWeek: [0,3,4,4,5,8,8,8],   ///pending
+        pointsByWeek: [0,3,4,4,5,8,8,9], 
     },
     {
         id: 13,
