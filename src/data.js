@@ -98,7 +98,7 @@ const teamData = [
         id: 16,
         name: "Southampton",
         teamImg: "/images/southampton.png",
-        pointsByWeek: [0,0,0,3,4,7,7,7,7,,8],
+        pointsByWeek: [0,0,0,3,4,7,7,7,7,8],
     },
     {
         id: 17,
