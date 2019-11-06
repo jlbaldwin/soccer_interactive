@@ -54,6 +54,7 @@ h2{
   height: 30px;
   width: 30px;
   position: relative;
+  z-index: 1;
 }
 
 .team-text {
