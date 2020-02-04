@@ -26,10 +26,10 @@ class App extends Component {
     this.state = {
       teams: teamData,
       league: 'Premier League',
-      year: '2019',
+      year: '2019-20',
       teamCt: 20, 
-      orgIterator: 23,
-      iterator: 23, 
+      orgIterator: 25,
+      iterator: 25, 
     }
 
     this.initialAnimation = this.initialAnimation.bind(this)
@@ -232,7 +232,7 @@ forwardEndAnimation(){
               {this.state.league} Standings 
             </span>
             <span id="week-number">
-              {this.state.year} - Week {this.state.iterator}
+              {this.state.year} Week {this.state.iterator}
             </span>
           </h2>
           
